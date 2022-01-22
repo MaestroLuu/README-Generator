@@ -1,18 +1,4 @@
-const template = ({
-    title,
-    motivation,
-    reason,
-    problem,
-    lesson,
-    installation,
-    usage,
-    contribution,
-    thirdParties,
-    tutorial,
-    license,
-    github,
-    email
-}) =>
+const template = ({ title, motivation, reason, problem, lesson, installation, usage, contribution, thirdParties, tutorial, license, github, email }) =>
 `# ${title}
 
 ## Description
@@ -51,10 +37,6 @@ ${license}
 
 If you have any additional questions regarding this application, please contact me via the channels provided below:
 Github: ${github}
-Email: ${email}
-
-## Tests
-
-${test}`;
+Email: ${email}`;
 
 module.exports = template;
