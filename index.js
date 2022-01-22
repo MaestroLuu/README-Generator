@@ -17,12 +17,14 @@ inquirer
       type: 'input',
       message: 'What is your project title?',
       name: 'title',
+      default: 'To Be Determined'
     },
     // description section
     {
       type: 'input',
       message: 'What was your motivation?',
       name: 'motivation',
+      default: 'To be completed at a later time'
     },
     {
       type: 'input',
@@ -44,18 +46,21 @@ inquirer
       type: 'input',
       message: 'What are the steps required to install your project? Provide a step-by-step description.',
       name: 'installation',
+      default: 'To be completed at a later time'
     },
     // usage section
     {
       type: 'input',
       message: 'Provide instructions for the user to follow',
       name: 'usage',
+      default: 'To be completed at a later time'
     },
     // credits section
     {
       type: 'input',
       message: 'List your collaborators, if any, with links to their GitHub profiles.',
       name: 'contribution',
+      default: 'No additional collaborators were involved with the development of this project.'
     },
     {
       type: 'input',
@@ -72,12 +77,14 @@ inquirer
       type: 'input',
       message: 'Please write a test for your application. Then provide examples on how to run them here.',
       name: 'test',
+      default: 'To be completed at a later time'
     },
     // questions section
     {
       type: 'input',
       message: 'Please provide a link to your GitHub profile?',
       name: 'github',
+      default: 'To be completed at a later time'
     },
     {
       type: 'input',
@@ -107,35 +114,31 @@ inquirer
         },
       ],
     },
-    
   ])
-  // .then(({ license }) => {
-  //   // Create a license string
-  //   let badge;
-  //   switch (license) {
-  //     case "MIT":
-  //       badge =
-  //         "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-  //       break;
-  //     case "Apache":
-  //       badge =
-  //         "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
-  //       break;
-  //     case "BSD3":
-  //       badge =
-  //         "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
-  //       break;
-  //     case "GPL":
-  //       badge =
-  //         "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
-  //       break;
-
-  //     default:
-  //       throw new Error(`Invalid license ${license}`);
-  //   }
-  // })
-
+  
   .then(response => {
+    const license = response.license;
+    console.log(license);
+    let badge;
+    switch (license) {
+      case "MIT":
+        badge =
+          "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+        break;
+      case "Apache":
+        badge =
+          "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+        break;
+      case "BSD3":
+        badge =
+          "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
+        break;
+      case "GPL":
+        badge =
+          "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
+        break;
+    }
+
     const readMeDocument = template(response);
 
     fs.writeFile('README.md', readMeDocument, (err) =>
