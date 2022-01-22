@@ -2,14 +2,6 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const template = require('./template.js');
 
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for information about my application repository
-// THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-// WHEN I choose a license for my application from a list of options
-// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-// WHEN I click on the links in the Table of Contents
-// THEN I am taken to the corresponding section of the README
-
 inquirer
   .prompt([
     // project title
@@ -127,7 +119,7 @@ inquirer
     
     const readMeDocument = template(response, badge);
 
-    fs.writeFile('demo.md', readMeDocument, (err) =>
-      err ? console.error(err) : console.log('Generating README.md...')
+    fs.writeFile('DEMO-README.md', readMeDocument, (err) =>
+      err ? console.error(err) : console.log('Generating DEMO-README.md...')
     );
   });
