@@ -22,36 +22,21 @@ inquirer
     // description section
     {
       type: 'input',
-      message: 'What was your motivation?',
-      name: 'motivation',
+      message: 'Please describe the functionality of your application.',
+      name: 'functionality',
       default: 'To be completed at a later time'
-    },
-    {
-      type: 'input',
-      message: 'Why did you build this project?',
-      name: 'reason',
-    },
-    {
-      type: 'input',
-      message: 'What problem does it solve?',
-      name: 'problem',
-    },
-    {
-      type: 'input',
-      message: 'What did you learn?',
-      name: 'lesson',
     },
     // installation section
     {
       type: 'input',
-      message: 'What are the steps required to install your project? Provide a step-by-step description.',
+      message: 'What are the steps required to install your project?',
       name: 'installation',
       default: 'To be completed at a later time'
     },
     // usage section
     {
       type: 'input',
-      message: 'Provide instructions for the user to follow',
+      message: 'Please provide instructions on how to use your application.',
       name: 'usage',
       default: 'To be completed at a later time'
     },
@@ -75,7 +60,7 @@ inquirer
     // tests section
     {
       type: 'input',
-      message: 'Please write a test for your application. Then provide examples on how to run them here.',
+      message: 'Please write a test for your application.',
       name: 'test',
       default: 'To be completed at a later time'
     },
@@ -90,6 +75,7 @@ inquirer
       type: 'input',
       message: 'What is your email address?',
       name: 'email',
+      default: 'No email adddress provided.',
     },
     // license section
     {
@@ -117,10 +103,8 @@ inquirer
   ])
   
   .then(response => {
-    const license = response.license;
-    console.log(license);
     let badge;
-    switch (license) {
+    switch (response.license) {
       case "MIT":
         badge =
           "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
@@ -138,7 +122,8 @@ inquirer
           "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
         break;
     }
-
+    
+    console.log(badge);
     const readMeDocument = template(response);
 
     fs.writeFile('README.md', readMeDocument, (err) =>

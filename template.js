@@ -1,13 +1,10 @@
-const template = ({ title, badge, motivation, reason, problem, lesson, installation, usage, contribution, thirdParties, tutorial, license, github, email }) =>
+const template = ({ title, functionality, installation, usage, contribution, thirdParties, tutorial, license, github, email, badge }) =>
 `# ${title}
+${badge}
 
 ## Description
 
-${badge}
-${motivation} 
-${reason} 
-${problem} 
-${lesson}
+${functionality} 
 
 ## Table of Contents
 - [Installation](#installation)
