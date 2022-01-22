@@ -33,6 +33,11 @@ inquirer
       message: 'What problem does it solve?',
       name: 'problem',
     },
+    {
+      type: 'input',
+      message: 'What did you learn?',
+      name: 'lesson',
+    },
     // installation section
     {
       type: 'input',
@@ -76,13 +81,13 @@ inquirer
     // tests section
     {
       type: 'input',
-      message: 'Go the extra mile and write tests for your application. Then provide examples on how to run them here.',
+      message: 'Please write a test for your application. Then provide examples on how to run them here.',
       name: 'test',
     },
     // questions section
     {
       type: 'input',
-      message: 'What is your Github username?',
+      message: 'Please provide a link to your GitHub profile?',
       name: 'github',
     },
     {
