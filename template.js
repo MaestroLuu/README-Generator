@@ -1,6 +1,8 @@
-const template = ({ title, functionality, installation, usage, contribution, thirdParties, tutorial, license, github, email, badge }) =>
+const template = ({ title, functionality, installation, usage, contribution, thirdParties, tutorial, license, github, email }, badge) =>
+
 `# ${title}
 ${badge}
+
 
 ## Description
 
