@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const template = require('./template.js');
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for information about my application repository
@@ -66,17 +67,28 @@ inquirer
       message: 'If you followed tutorials, include links to those here as well.',
       name: 'tutorial',
     },
-      // license section
+    // license section
     {
-    type: "list",
-    message: "Choose a license to create your badge:",
-    name: "license",
-    choices: [
-      { name: "MIT license", value: "MIT" },
-      { name: "Apache License 2.0", value: "Apache" },
-      { name: 'BSD 3-Clause "New" or "Revised" license', value: "BSD3" },
-      { name: "GNU General Public License (GPL)", value: "GPL" },
-    ],
+      type: "list",
+      message: "Choose a license to create your badge:",
+      name: "license",
+      choices: [{
+          name: "MIT license",
+          value: "MIT"
+        },
+        {
+          name: "Apache License 2.0",
+          value: "Apache"
+        },
+        {
+          name: 'BSD 3-Clause "New" or "Revised" license',
+          value: "BSD3"
+        },
+        {
+          name: "GNU General Public License (GPL)",
+          value: "GPL"
+        },
+      ],
     },
     // tests section
     {
@@ -96,10 +108,10 @@ inquirer
       name: 'email',
     },
   ])
-  // .then((response) =>
-  //   response.confirm === response.password
-  //     ? console.log('Success!')
-  //     : console.log('You forgot your password already?!')
-  // );
+  .then(response => {
+    const readMeDocument = template(response);
 
-
+    fs.writeFile('README.md', readMeDocument, (err) =>
+      err ? console.error(err) : console.log('Generating README.md...')
+    );
+  });

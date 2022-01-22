@@ -1,12 +1,26 @@
-const template =
-`# ${response.title}
+const template = ({
+    title,
+    motivation,
+    reason,
+    problem,
+    lesson,
+    installation,
+    usage,
+    contribution,
+    thirdParties,
+    tutorial,
+    license,
+    github,
+    email
+}) =>
+`# ${title}
 
 ## Description
 
-${response.motivation} 
-${response.reason} 
-${response.problem} 
-${response.lesson}
+${motivation} 
+${reason} 
+${problem} 
+${lesson}
 
 ## Table of Contents
 - [Installation](#installation)
@@ -16,29 +30,31 @@ ${response.lesson}
 
 ## Installation
 
-${response.installation}
+${installation}
 
 ## Usage
 
-${response.usage}
+${usage}
 
 ## Credits
 
-${response.contribution}
-${response.thirdParties}
-${response.tutorial}
+${contribution}
+${thirdParties}
+${tutorial}
 
 ## License
 
-${response.license}
+${license}
 ---
 
 ## Questions
 
 If you have any additional questions regarding this application, please contact me via the channels provided below:
-Github: ${response.github}
-Email: ${reponse.email}
+Github: ${github}
+Email: ${email}
 
 ## Tests
 
-${response.test}
+${test}`;
+
+module.exports = template;
