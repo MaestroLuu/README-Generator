@@ -36,7 +36,7 @@ ${license}
 ## Questions
 
 If you have any additional questions regarding this application, please contact me via the channels provided below:
-Github: ${github}
+Github: ${github}\n
 Email: ${email}`;
 
 module.exports = template;

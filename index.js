@@ -17,28 +17,28 @@ inquirer
       type: 'input',
       message: 'What is your project title?',
       name: 'title',
-      default: 'To Be Determined'
+      default: 'Project title to be determined'
     },
     // description section
     {
       type: 'input',
       message: 'Please describe the functionality of your application.',
       name: 'functionality',
-      default: 'To be completed at a later time'
+      default: 'Functionality will be discussed and provided at a later time.'
     },
     // installation section
     {
       type: 'input',
       message: 'What are the steps required to install your project?',
       name: 'installation',
-      default: 'To be completed at a later time'
+      default: 'No additional files are needed for installation.'
     },
     // usage section
     {
       type: 'input',
       message: 'Please provide instructions on how to use your application.',
       name: 'usage',
-      default: 'To be completed at a later time'
+      default: 'Instructions on usage will be completed at a later time.'
     },
     // credits section
     {
@@ -51,25 +51,27 @@ inquirer
       type: 'input',
       message: 'If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.',
       name: 'thirdParties',
+      default: 'No third-party assets were used in this development.'
     },
     {
       type: 'input',
       message: 'If you followed tutorials, include links to those here as well.',
       name: 'tutorial',
+      default: 'No tutorials were used during this time.'
     },
     // tests section
     {
       type: 'input',
       message: 'Please write a test for your application.',
       name: 'test',
-      default: 'To be completed at a later time'
+      default: 'Test will be written at a later time.'
     },
     // questions section
     {
       type: 'input',
       message: 'Please provide a link to your GitHub profile?',
       name: 'github',
-      default: 'To be completed at a later time'
+      default: 'GitHub link is not provided'
     },
     {
       type: 'input',
@@ -124,8 +126,7 @@ inquirer
         break;
     }
     
-    console.log(badge);
-    const readMeDocument = template(response, badge);
+    const readMeDocument = template(response);
 
     fs.writeFile('README.md', readMeDocument, (err) =>
       err ? console.error(err) : console.log('Generating README.md...')
