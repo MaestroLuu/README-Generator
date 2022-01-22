@@ -105,7 +105,6 @@ inquirer
   ])
   
   .then(response => {
-    console.log(response);
     let badge;
     switch (response.license) {
       case "MIT":
@@ -126,9 +125,9 @@ inquirer
         break;
     }
     
-    const readMeDocument = template(response);
+    const readMeDocument = template(response, badge);
 
-    fs.writeFile('README.md', readMeDocument, (err) =>
+    fs.writeFile('demo.md', readMeDocument, (err) =>
       err ? console.error(err) : console.log('Generating README.md...')
     );
   });

@@ -3,7 +3,6 @@ const template = ({ title, functionality, installation, usage, contribution, thi
 `# ${title}
 ${badge}
 
-
 ## Description
 
 ${functionality} 
@@ -13,6 +12,7 @@ ${functionality}
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Questions](#questions)
 
 ## Installation
 
@@ -24,19 +24,19 @@ ${usage}
 
 ## Credits
 
-${contribution}
-${thirdParties}
-${tutorial}
+${contribution}<br />
+${thirdParties}<br />
+${tutorial}<br />
 
 ## License
 
-${license}
+### ${license}
 ---
 
 ## Questions
 
-If you have any additional questions regarding this application, please contact me via the channels provided below:
-Github: ${github}\n
+If you have any additional questions regarding this application, please contact me via the channels provided below:<br />
+Github: ${github}<br />
 Email: ${email}`;
 
 module.exports = template;
